@@ -1,0 +1,46 @@
+
+				<!-- Sidebar -->
+                <section id="sidebar">
+
+                    <!-- Intro -->
+                        <section id="intro">
+                            <a href="#" class="logo"><img src="{{url_for('static', filename='images/logo.png')}}" alt="" /></a>
+                            <header>
+                                <h2>Quotes Queues</h2>
+                                <p>A one-stop destination for your quote surfing.</p>
+                            </header>
+                        </section>
+
+                    <!-- Mini Posts -->
+                        <section>
+                            <div class="mini-posts">
+                                {% for category in categories %}
+                                <!-- Mini Post -->
+                                    <article class="mini-post">
+                                        <header>
+                                            <h3><a href="#">{{category}}</a></h3>
+                                        </header>
+                                    </article>
+                                {% endfor %}
+                                <!-- Mini Post -->
+                                    <!-- <article class="mini-post">
+                                        <header>
+                                            <h3><a href="single.html">Rutrum neque accumsan</a></h3>
+                                            <time class="published" datetime="2015-10-19">October 19, 2015</time>
+                                            <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                                        </header>
+                                        <a href="single.html" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                                    </article> -->
+
+                            </div>
+                        </section>
+
+                    <!-- About -->
+                        <section class="blurb">
+                            <h2>Why Quotes queues? </h2>
+                            <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+                            <ul class="actions">
+                                <li><a href="#" class="button">Learn More</a></li>
+                            </ul>
+                        </section>
+                        
