@@ -14,8 +14,8 @@
 									</ul>
 									<ul class="stats">
 										<li><a href="#">{{quote.author}}</a></li>
-										<li><a href="#" class="icon solid fa-heart">{{quote.likes}}</a></li>
-										<li><a href="#" class="icon solid fa-comment">{{quote.dislikes}}</a></li>
+										<li><a href="{{url_for('add_like', id = quote.id)}}" class="icon solid fa-heart">{{quote.likes}}</a></li>
+										<li><a href="{{url_for('add_dislike', id = quote.id)}}" class="icon solid fa-times">{{quote.dislikes}}</a></li>
 									</ul>
 								</footer>
 							</article>

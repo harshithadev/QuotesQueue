@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template,redirect,url_for, request, jsonify
 from quoteClass import Quote
 from quotes import quotes
 from flask_sqlalchemy import SQLAlchemy
@@ -26,12 +26,6 @@ class Quote(db.Model) :
     def to_dict(self):
         return {column.name : getattr(self, column.name) for column in self.__table__.columns}
 
-    def add_like(self):
-        self.likes += 1
-
-    def add_dislike(self):
-        self.dislikes += 1
-
 with app.app_context():
     db.create_all()
 
@@ -53,6 +47,20 @@ def get_categories():
 def get_quotes():
     quote_objects = db.session.execute(db.select(Quote)).scalars().all()
     return quote_objects
+
+@app.route("/add-like/<id>")
+def add_like(id):
+    requested_quote = db.get_or_404(Quote, id)
+    requested_quote.likes += 1
+    db.session.commit()
+    return redirect(url_for('home'))
+
+@app.route("/add-dislike/<id>")
+def add_dislike(id):
+    requested_quote = db.get_or_404(Quote, id)
+    requested_quote.dislikes += 1
+    db.session.commit()
+    return redirect(url_for('home'))
 
 @app.route("/add", methods = ['GET', 'POST'])
 def add_quote():
