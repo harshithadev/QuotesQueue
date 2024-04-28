@@ -18,7 +18,7 @@
                                 <!-- Mini Post -->
                                     <article class="mini-post">
                                         <header>
-                                            <h3><a href="#">{{category}}</a></h3>
+                                            <h3><a href="{{url_for('list_by_category', category = category)}}">{{category}}</a></h3>
                                         </header>
                                     </article>
                                 {% endfor %}
