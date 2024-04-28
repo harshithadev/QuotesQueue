@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from quoteClass import Quote
 from quotes import quotes
 from flask_sqlalchemy import SQLAlchemy
@@ -54,6 +54,18 @@ def get_quotes():
     quote_objects = db.session.execute(db.select(Quote)).scalars().all()
     return quote_objects
 
+@app.route("/add", methods = ['GET', 'POST'])
+def add_quote():
+    if request.method == 'GET' :
+        return render_template('add.html', categories = get_categories())
+    else : 
+        quote = request.form.get("quote")
+        author = request.form.get("author")
+        category = request.form.get("category")
+        db.session.add(Quote(quote=quote, author = author, category=category, likes=0, dislikes=0))
+        db.session.commit()
+        return "Added"
+
 @app.route("/category/<category>")
 def list_by_category(category):
     quote_objects = db.session.execute(db.select(Quote).where(Quote.category == category)).scalars().all()
@@ -67,6 +79,10 @@ def list_by_author(author):
 @app.route("/about")
 def about():
     return render_template('about.html')
+
+@app.route("/all")
+def all():
+    return jsonify(quotes = [quote.to_dict() for quote in get_quotes()])
 
 @app.route("/")
 def home():

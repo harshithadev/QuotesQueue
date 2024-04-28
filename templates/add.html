@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+
+	<!-- Main -->
+    <div id="main">
+        <!-- form -->
+							<article class="post">
+								<form method="post" action="{{url_for('add_quote')}}">
+                                    <div class="row gtr-uniform">
+                                        <div class="col-12">
+                                            <textarea name="quote" id="demo-message" placeholder="Enter the quote" rows="2"></textarea>
+                                        </div>
+                                        <div class="col-6 col-12-xsmall">
+                                            <input type="text" name="author" id="demo-name" value="" placeholder="Author" />
+                                        </div>
+                                        <div class="col-6 col-12-xsmall">
+                                            <select name="category" id="demo-category">
+                                                <option value="">- Category -</option>
+                                                {% for category in categories %}
+                                                <option value={{category}}>{{category}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <footer>
+                                        <ul class="actions">
+                                            <li><input type="submit" value="Add quote" /></li>
+                                        </ul>
+                                    </footer>
+                                </form>
+
+								
+							</article>
+    </div>
+
+{% include 'no-footer.html' %}
