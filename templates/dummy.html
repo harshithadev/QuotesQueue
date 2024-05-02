@@ -1,47 +1,16 @@
 {% include 'header.html' %}
-
 				<!-- Main -->
 					<div id="main">
-
 						<article class="quote-post">
-
-
+                            {% for quote in quotes : %}
                             <blockquote>
-                                <div><p>Life has many cruel subtleties that require far more courage to deal with than the obvious dangers of climbing.</p></div>
+                                <div><p>{{quote.quote}}</p></div>
                                 <div>
-                                    <cite>Peter Boardman<span>Mountaineer and Publisher</span></cite>
-                                    <img src="https://cuadernodeescaladas.com/wp-content/themes/josetxu-notepad/frases/img/peterboardman.jpg"></div>
+                                    <cite>{{quote.author}}</cite>
+                                    <img src="https://img.freepik.com/free-vector/man-profile-account-picture_24908-81754.jpg?t=st=1714666118~exp=1714669718~hmac=b5a6f17a5930d24c18f146ac0f6e20be60e9e881e356178093c79a65cc748a45&w=740"></div>
                             </blockquote>
-                        
-                        
-                        
-                        
-                            <blockquote class="small">
-                                <div><p>If I have dragged other companions into danger, which is true, I have never stopped being by their side.</p></div>
-                                <div>
-                                    <cite>Lionel Terray<span>Mountaineer</span></cite>
-                                    <img src="https://cuadernodeescaladas.com/wp-content/themes/josetxu-notepad/frases/img/lionelterray.jpg"></div>
-                            </blockquote>
-                        
-                        
-                        
-                            <blockquote  class="small">
-                                <div><p>The most beautiful gesture in the mountains is to make your companion responsible for your life.</p></div>
-                                <div>
-                                    <cite>Catherine Destivelle<span>Rock Climber, Mountaineer, and Publisher</span></cite>
-                                    <img src="https://cuadernodeescaladas.com/wp-content/themes/josetxu-notepad/frases/img/catherinedestivelle.jpg"></div>
-                            </blockquote>
-                        
-                        
-                        
-                        
-                        
-                            <blockquote>
-                                <div><p>Mountains are not stadiums where I satisfy my ambition to achieve, they are the cathedrals where I practice my religion.</p></div>
-                                <div>
-                                    <cite>Anatoli Boukreev<span>Mountaineer, Mountain Guide and Publisher</span></cite>
-                                    <img src="https://cuadernodeescaladas.com/wp-content/themes/josetxu-notepad/frases/img/anatoliboukreev.jpg"></div>
-                            </blockquote>
+                            
+                         {% endfor %}
                         
                         
                         </article>

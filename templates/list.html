@@ -3,23 +3,20 @@
 				<!-- Main -->
 					<div id="main">
 
-						{% for quote in quotes %}
-						<!-- Post -->
-							<article class="post">
-								<a href="single.html" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-								<p>{{quote.quote}}</p>
-								<footer>
-									<ul class="actions">
-										<li><a href="#" class="button large">{{quote.category}}</a></li>
-									</ul>
-									<ul class="stats">
-										<li><a href="#">{{quote.author}}</a></li>
-										<li><a href="{{url_for('add_like', id = quote.id)}}" class="icon solid fa-heart">{{quote.likes}}</a></li>
-										<li><a href="{{url_for('add_dislike', id = quote.id)}}" class="icon solid fa-times">{{quote.dislikes}}</a></li>
-									</ul>
-								</footer>
-							</article>
-						{% endfor %}
+						<article class="quote-post">
+                            {% for quote in quotes : %}
+                            <blockquote class="{{ loop.cycle('', 'small', 'small') }}">
+                                <div><p>{{quote.quote}}</p></div>
+                                <div>
+                                    <cite>{{quote.author}}</cite>
+                                    <img src="https://img.freepik.com/free-vector/man-profile-account-picture_24908-81754.jpg?t=st=1714666118~exp=1714669718~hmac=b5a6f17a5930d24c18f146ac0f6e20be60e9e881e356178093c79a65cc748a45&w=740"></div>
+                            </blockquote>
+                            
+                         {% endfor %}
+                        
+                        
+                        </article>
+
 
 						<!-- Pagination -->
 							<ul class="actions pagination">
