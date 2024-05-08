@@ -57,7 +57,7 @@ def get_quotes():
 @app.route("/random")
 def random_quote():
     random_quote = db.get_or_404(Quote, choice(get_ids()))
-    return jsonify(random_quote.to_dict())
+    return render_template('random.html', quote = random_quote)
 
 @app.route("/add-like/<id>")
 def add_like(id):
