@@ -8,6 +8,6 @@
 06. Make the like and the dislike buttons responsive (DONE)
 07. Change quotes aesthatic, use https://codepen.io/josetxu/pen/QWZxgbX  (DONE)
 08. Create a random api route that sends a random quote everytime refreshed. (DONE)
-09. Display the random quote in the center of the page.
-10. Add a shuffle icon under to refresh. 
+09. Display the random quote in the center of the page. (DONE)
+10. Add a shuffle icon under to refresh. (DONE)
 
