@@ -4,6 +4,7 @@ from quotes import quotes
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, Boolean
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from random import choice
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quotes.db'
@@ -44,9 +45,19 @@ def get_categories():
     categories = db.session.execute(db.select(Quote.category).distinct().order_by(Quote.category)).scalars().all()
     return categories
 
+def get_ids():
+    ids = []
+    ids = db.session.execute(db.select(Quote.id)).scalars().all()
+    return ids
+
 def get_quotes():
     quote_objects = db.session.execute(db.select(Quote)).scalars().all()
     return quote_objects
+
+@app.route("/random")
+def random_quote():
+    random_quote = db.get_or_404(Quote, choice(get_ids()))
+    return jsonify(random_quote.to_dict())
 
 @app.route("/add-like/<id>")
 def add_like(id):
