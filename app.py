@@ -94,7 +94,6 @@ def all():
 
 @app.route("/")
 def home():
-    return render_template('dummy.html', quotes = get_quotes()[:4], categories = get_categories()[:6])
     return render_template("index.html", quotes = get_quotes()[:5], categories = get_categories()[:6])
 
 if __name__ == "__main__" : 

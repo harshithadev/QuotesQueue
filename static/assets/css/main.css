@@ -3100,6 +3100,10 @@ input, select, textarea {
 				border-top: 0;
 			}
 
+.pagination {
+	margin-top: 20px;
+}
+
 /* Header */
 
 	body {
